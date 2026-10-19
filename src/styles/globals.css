@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #084ca6;
+  --color-secondary: #24b5ef;
+  --color-background: #ffffff;
+  --color-surface: #e2f2ff;
+  --color-text-dark: #102a43;
+  --color-text-body: #566473;
+  --color-border: #e4edf5;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 1rem;
+  --radius-button: 0.75rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-background text-text-body antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-secondary;
+  }
+}
+
+@layer utilities {
+  .section-anchor {
+    scroll-margin-top: 9rem;
+  }
+  .image-frame {
+    transform-style: preserve-3d;
+  }
+  .image-frame__overlay {
+    background: linear-gradient(180deg, rgb(8 76 166 / 0) 45%, rgb(8 76 166 / 0.12) 100%);
+    opacity: 0.85;
+    transition: opacity 0.45s ease;
+  }
+  .image-frame:hover .image-frame__overlay {
+    opacity: 1;
+    background: linear-gradient(180deg, rgb(36 181 239 / 0.05) 0%, rgb(8 76 166 / 0.2) 100%);
+  }
+  .image-frame__shine {
+    background: linear-gradient(
+      105deg,
+      transparent 42%,
+      rgb(255 255 255 / 0.45) 50%,
+      transparent 58%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .image-frame:hover .image-frame__shine {
+    transform: translateX(120%);
+  }
+}
