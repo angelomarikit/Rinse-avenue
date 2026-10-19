@@ -8,7 +8,8 @@
     "build": "node ./node_modules/typescript/lib/tsc.js -b && node ./node_modules/vite/bin/vite.js build",
     "typecheck": "node ./node_modules/typescript/lib/tsc.js -b",
     "lint": "node ./node_modules/oxlint/bin/oxlint",
-    "preview": "node ./node_modules/vite/bin/vite.js preview"
+    "preview": "node ./node_modules/vite/bin/vite.js preview",
+    "postinstall": "node ./scripts/fix-bin-perms.mjs"
   },
   "dependencies": {
     "@fontsource/plus-jakarta-sans": "^5.2.8",
